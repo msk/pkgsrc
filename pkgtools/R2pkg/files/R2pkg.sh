@@ -287,8 +287,6 @@ depends <- function(s1,s2)
               else
                 depends.vers <- paste('>=',depends.pkg.vers,sep='')
               depends.line <- paste('DEPENDS+=\tR-',depends,depends.vers,':',depends.pkg,sep='')
-              if (length(dependency) == 2)
-                depends.line <- paste(depends.line,'	# XXX - found ',depends.pkg.fullname,' (',depends.pkg,')',sep='')
             }
           else
             {
