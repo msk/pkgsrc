@@ -210,7 +210,7 @@ version <- function(s) field('R_PKGVER',one.line(s))
 comment <- function(s) field('COMMENT',one.line(s))
 license <- function(s) field(todo.license(s),pkgsrc.license(s))
 
-categories <- function() paste('CATEGORIES=',paste(basename(dirname(getwd())),'R'),sep='	')
+categories <- function() paste('CATEGORIES=',basename(dirname(getwd())),sep='	')
 description <- function(s) strwrap(s,width=71)
 
 homepage <- function(s)
