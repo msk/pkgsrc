@@ -314,9 +314,9 @@ use.languages <- function(s1,s2)
   Rcpp <- grepl('Rcpp',s)
   if (Rcpp)
     USE_LANGUAGES <- append(USE_LANGUAGES,list('USE_LANGUAGES+=	c++'))
-  if (length(USE_LANGUAGES) > 0)
-    USE_LANGUAGES <- append(USE_LANGUAGES,'')
-  USE_LANGUAGES
+  else
+    USE_LANGUAGES <- append(USE_LANGUAGES,list('USE_LANGUAGES=	# none'))
+  append(USE_LANGUAGES,'')
 }
 
 buildlink <- function(s1,s2)
