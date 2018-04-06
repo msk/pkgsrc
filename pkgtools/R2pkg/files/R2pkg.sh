@@ -213,6 +213,19 @@ license <- function(s) field(todo.license(s),pkgsrc.license(s))
 categories <- function() paste('CATEGORIES=',paste(basename(dirname(getwd())),'R'),sep='	')
 description <- function(s) strwrap(s,width=71)
 
+homepage <- function(s)
+{
+  if (is.na(s))
+    s <- '\${R_HOMEPAGE_BASE}/${RPKG}/'
+  else {
+    url <- unlist(strsplit(s,',[[:blank:]]*'))[1]
+    if (grepl('https?://[^/]+$', url))
+      url <- paste(url, '/', sep='')
+    s <- gsub("#", "\\\\#", url, fixed=TRUE)
+  }
+  field('HOMEPAGE',s)
+}
+
 filter.imports <- function(s)
 {
   base.packages <- c('R','MASS','Matrix','Rcpp','cluster','grDevices','graphics','grid','foreign','lattice','nlme','methods','nnet','parallel','rpart','stats','survival','tools','utils')
@@ -326,13 +339,13 @@ error <- download.file(url='${RPKG_DESCRIPTION_URL}',destfile='DESCRIPTION',quie
 if (error)
   quit(status=error)
 
-metadata <- read.dcf(file='DESCRIPTION', fields=c('Package','Version','Title','Description','License','Imports','Depends'))
+metadata <- read.dcf(file='DESCRIPTION', fields=c('Package','Version','Title','Description','License','Imports','Depends','URL'))
  
 CVS               <- '# \$NetBSD\$'
 CATEGORIES        <- categories()
 MASTER.SITES      <- 'MASTER_SITES=	\${MASTER_SITE_R_CRAN:=contrib/}'
 MAINTAINER        <- 'MAINTAINER=	pkgsrc-users@NetBSD.org'
-HOMEPAGE          <- 'HOMEPAGE=	\${R_HOMEPAGE_BASE}/${RPKG}/'
+HOMEPAGE          <- homepage(metadata[8])
 COMMENT           <- comment(metadata[3])
 LICENSE           <- license(metadata[5])
 R_PKGNAME         <- package(metadata[1])
