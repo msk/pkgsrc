@@ -322,6 +322,18 @@ use.languages <- function(s1,s2)
   append(USE_LANGUAGES,'')
 }
 
+buildlink.R <- function(s)
+{
+  BUILDLINK.R <- list()
+  if (grepl('(^|,)[[:blank:]]*R[[:blank:],]',s))
+    {
+      s <- gsub('^R[[:blank:]]*\\\\(([^[:blank:]\\\\d]+)[[:blank:]]*(\\\\d[^\\\\)]+)\\\\).*$', '\\\\1\\\\2', s)
+      BUILDLINK.R <- append(BUILDLINK.R,paste('BUILDLINK_API_DEPENDS.R+=	R', s, sep=''))
+    }
+  BUILDLINK.R <- append(BUILDLINK.R,'.include "../../math/R/Makefile.extension"')
+  BUILDLINK.R
+}
+
 buildlink <- function(s1,s2)
 {
   BUILDLINK <- list()
@@ -355,7 +367,7 @@ R_PKGNAME         <- package(metadata[1])
 R_PKGVER          <- version(metadata[2])
 USE_LANGUAGES     <- use.languages(metadata[6],metadata[7])
 DEPENDS           <- depends(metadata[6],metadata[7])
-INCLUDE.R         <- '.include "../../math/R/Makefile.extension"'
+INCLUDE.R         <- buildlink.R(metadata[7])
 INCLUDE.BUILDLINK <- buildlink(metadata[6],metadata[7])
 INCLUDE.PKG       <- '.include "../../mk/bsd.pkg.mk"'
 
