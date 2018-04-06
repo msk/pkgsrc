@@ -208,7 +208,6 @@ pkgsrc.license <- function(s)
 package <- function(s) field('R_PKGNAME',one.line(s))
 version <- function(s) field('R_PKGVER',one.line(s))
 comment <- function(s) field('COMMENT',one.line(s))
-license <- function(s) field(todo.license(s),pkgsrc.license(s))
 
 categories <- function() paste('CATEGORIES=',basename(dirname(getwd())),sep='	')
 description <- function(s) strwrap(s,width=71)
@@ -224,6 +223,12 @@ homepage <- function(s)
     s <- gsub("#", "\\\\#", url, fixed=TRUE)
   }
   field('HOMEPAGE',s)
+}
+
+license <- function(s)
+{
+  s <- gsub(" [|\\\\+] file LICENSE", "", s)
+  field(todo.license(s),pkgsrc.license(s))
 }
 
 filter.imports <- function(s)
