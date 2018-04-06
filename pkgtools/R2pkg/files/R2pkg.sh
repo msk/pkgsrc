@@ -342,7 +342,7 @@ metadata <- read.dcf(file='DESCRIPTION', fields=c('Package','Version','Title','D
 CVS               <- '# \$NetBSD\$'
 CATEGORIES        <- categories()
 MASTER.SITES      <- 'MASTER_SITES=	\${MASTER_SITE_R_CRAN:=contrib/}'
-MAINTAINER        <- 'MAINTAINER=	pkgsrc-users@NetBSD.org'
+MAINTAINER        <- 'MAINTAINER=	${MAINTAINER}'
 HOMEPAGE          <- homepage(metadata[8])
 COMMENT           <- comment(metadata[3])
 LICENSE           <- license(metadata[5])
@@ -467,6 +467,11 @@ EOF
 
 ${ECHO_BANNER} "${BANNER_MSG} ..."
 check_for_R
+if [ -f Makefile ]; then
+    MAINTAINER=`${MAKE} show-var VARNAME=MAINTAINER`
+else
+    MAINTAINER="pkgsrc-users@NetBSD.org"
+fi
 preserve_original_files
 make_package
 error=${?}
