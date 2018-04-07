@@ -299,14 +299,16 @@ depends <- function(s1,s2)
               depends.vers <- trim.space(depends.vers)
               depends.line <- paste('DEPENDS+=\tR-',depends,depends.vers,':../../R/R-',depends,sep='')
             }
-          DEPENDS <- list(DEPENDS,depends.line)
+          DEPENDS <- append(DEPENDS,depends.line)
           new.depends.pkg <- Sys.glob(paste('../../R/R-',depends,sep=''))
           if (length(new.depends.pkg) > 0)
             system(paste('echo',depends,'${RPKG} >> ${DEPENDENCY_LIST}'))
         }
     }
-  if (length(DEPENDS) > 0)
+  if (length(DEPENDS) > 0) {
+    DEPENDS <- DEPENDS[order(unlist(DEPENDS))]
     DEPENDS <- append(DEPENDS,'')
+  }
   DEPENDS
 }
 
