@@ -290,7 +290,7 @@ depends <- function(s1,s2)
               if (length(dependency) == 2)
                 depends.vers <- dependency[2]
               else
-                depends.vers <- paste('>=',depends.pkg.vers,sep='')
+                depends.vers <- '-[0-9]*'
               depends.line <- paste('DEPENDS+=\tR-',depends,depends.vers,':',depends.pkg,sep='')
             }
           else
