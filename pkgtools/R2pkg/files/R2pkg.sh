@@ -222,13 +222,11 @@ comment <- function(s)
 homepage <- function(s)
 {
   if (is.na(s))
-    s <- '\${R_HOMEPAGE_BASE}/${RPKG}/'
-  else {
-    url <- unlist(strsplit(s,',[[:blank:]]*'))[1]
-    if (grepl('https?://[^/]+$', url))
-      url <- paste(url, '/', sep='')
-    s <- gsub("#", "\\\\#", url, fixed=TRUE)
-  }
+    return(s)
+  url <- unlist(strsplit(s,',[[:blank:]]*'))[1]
+  if (grepl('https?://[^/]+$', url))
+    url <- paste(url, '/', sep='')
+  s <- gsub("#", "\\\\#", url, fixed=TRUE)
   field('HOMEPAGE',s)
 }
 
@@ -368,7 +366,6 @@ metadata <- read.dcf(file='DESCRIPTION', fields=c('Package','Version','Title','D
 CVS               <- '# \$NetBSD\$'
 DISTNAME          <- distname(metadata[1], metadata[2])
 CATEGORIES        <- categories()
-MASTER.SITES      <- 'MASTER_SITES=	\${MASTER_SITE_R_CRAN:=contrib/}'
 MAINTAINER        <- 'MAINTAINER=	${MAINTAINER}'
 HOMEPAGE          <- homepage(metadata[8])
 COMMENT           <- comment(metadata[3])
@@ -386,10 +383,10 @@ Makefile <- append(Makefile,CVS)
 Makefile <- append(Makefile,'')
 Makefile <- append(Makefile,DISTNAME)
 Makefile <- append(Makefile,CATEGORIES)
-Makefile <- append(Makefile,MASTER.SITES)
 Makefile <- append(Makefile,'')
 Makefile <- append(Makefile,MAINTAINER)
-Makefile <- append(Makefile,HOMEPAGE)
+if (!is.na(HOMEPAGE))
+  Makefile <- append(Makefile,HOMEPAGE)
 Makefile <- append(Makefile,COMMENT)
 Makefile <- append(Makefile,LICENSE)
 Makefile <- append(Makefile,'')
