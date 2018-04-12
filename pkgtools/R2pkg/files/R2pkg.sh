@@ -209,8 +209,7 @@ pkgsrc.license <- function(s)
   license
 }
 
-package <- function(s) field('R_PKGNAME',one.line(s))
-version <- function(s) field('R_PKGVER',one.line(s))
+distname <- function(s1, s2) field('DISTNAME',paste(s1, '_', s2, sep=''))
 comment <- function(s) field('COMMENT',one.line(s))
 
 categories <- function() paste('CATEGORIES=',basename(dirname(getwd())),sep='	')
@@ -363,14 +362,13 @@ if (error)
 metadata <- read.dcf(file='DESCRIPTION', fields=c('Package','Version','Title','Description','License','Imports','Depends','URL'))
  
 CVS               <- '# \$NetBSD\$'
+DISTNAME          <- distname(metadata[1], metadata[2])
 CATEGORIES        <- categories()
 MASTER.SITES      <- 'MASTER_SITES=	\${MASTER_SITE_R_CRAN:=contrib/}'
 MAINTAINER        <- 'MAINTAINER=	${MAINTAINER}'
 HOMEPAGE          <- homepage(metadata[8])
 COMMENT           <- comment(metadata[3])
 LICENSE           <- license(metadata[5])
-R_PKGNAME         <- package(metadata[1])
-R_PKGVER          <- version(metadata[2])
 USE_LANGUAGES     <- use.languages(metadata[6],metadata[7])
 DEPENDS           <- depends(metadata[6],metadata[7])
 INCLUDE.R         <- buildlink.R(metadata[7])
@@ -382,6 +380,7 @@ DESCR        <- description(metadata[4])
 Makefile <- list()
 Makefile <- append(Makefile,CVS)
 Makefile <- append(Makefile,'')
+Makefile <- append(Makefile,DISTNAME)
 Makefile <- append(Makefile,CATEGORIES)
 Makefile <- append(Makefile,MASTER.SITES)
 Makefile <- append(Makefile,'')
@@ -389,9 +388,6 @@ Makefile <- append(Makefile,MAINTAINER)
 Makefile <- append(Makefile,HOMEPAGE)
 Makefile <- append(Makefile,COMMENT)
 Makefile <- append(Makefile,LICENSE)
-Makefile <- append(Makefile,'')
-Makefile <- append(Makefile,R_PKGNAME)
-Makefile <- append(Makefile,R_PKGVER)
 Makefile <- append(Makefile,'')
 Makefile <- append(Makefile,DEPENDS)
 Makefile <- append(Makefile,USE_LANGUAGES)
