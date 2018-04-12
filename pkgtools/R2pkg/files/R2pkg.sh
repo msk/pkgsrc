@@ -210,10 +210,14 @@ pkgsrc.license <- function(s)
 }
 
 distname <- function(s1, s2) field('DISTNAME',paste(s1, '_', s2, sep=''))
-comment <- function(s) field('COMMENT',one.line(s))
-
 categories <- function() paste('CATEGORIES=',basename(dirname(getwd())),sep='	')
 description <- function(s) strwrap(s,width=71)
+
+comment <- function(s)
+{
+  s <- gsub("^A ", "", s)
+  field('COMMENT',one.line(s))
+}
 
 homepage <- function(s)
 {
