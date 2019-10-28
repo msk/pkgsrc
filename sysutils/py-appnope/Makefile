@@ -12,6 +12,10 @@ LICENSE=	modified-bsd
 
 ONLY_FOR_PLATFORM=	Darwin-*-*
 
+# setup.py uses platform, which in turn uses pyexpat in parsing
+# SystemVersion.plist on Darwin.
+BUILD_DEPENDS+=	${PYPKGPREFIX}-expat-[0-9]*:../../textproc/py-expat
+
 USE_LANGUAGES=	# none
 
 .include "../../lang/python/distutils.mk"
