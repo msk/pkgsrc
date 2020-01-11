@@ -845,7 +845,6 @@ gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-fixed/os/trace.h
 gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-fixed/stdint.h
 gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-fixed/stdio.h
 gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-fixed/syslimits.h
-gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-fixed/sys/ucred.h
 gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-gnu-runtime/objc/NXConstStr.h
 gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-gnu-runtime/objc/Object.h
 gcc9/lib/gcc/${MACHINE_GNU_PLATFORM}/${PKGVERSION}/include-gnu-runtime/objc/Protocol.h
