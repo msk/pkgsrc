@@ -13,7 +13,7 @@ LICENSE=	gnu-lgpl-v2.1 OR cpl-1.0
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
-USE_LANGUAGES=	c c++
+USE_LANGUAGES=	c c++11
 USE_TOOLS+=	aclocal autoconf automake gmake
 
 PKGCONFIG_OVERRIDE=	teckit.pc.in
