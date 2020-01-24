@@ -6,7 +6,7 @@ CATEGORIES=	math python
 MASTER_SITES=	${MASTER_SITE_PYPI:=p/pandas-datareader/}
 
 MAINTAINER=	minskim@NetBSD.org
-HOMEPAGE=	http://pandas.pydata.org/
+HOMEPAGE=	https://github.com/pydata/pandas-datareader
 COMMENT=	Remote data access for pandas
 LICENSE=	modified-bsd
 
