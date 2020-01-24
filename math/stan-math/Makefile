@@ -7,7 +7,7 @@ GITHUB_PROJECT=	math
 GITHUB_TAG=	v${PKGVERSION_NOREV}
 
 MAINTAINER=	minskim@NetBSD.org
-HOMEPAGE=	http://mc-stan.org/
+HOMEPAGE=	https://mc-stan.org/
 COMMENT=	Stan Math library
 LICENSE=	modified-bsd
 
