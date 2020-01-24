@@ -7,7 +7,7 @@ CATEGORIES=	devel
 MASTER_SITES=	ftp://ftp.cs.stanford.edu/pub/sgb/
 
 MAINTAINER=	minskim@NetBSD.org
-HOMEPAGE=	http://www-cs-faculty.stanford.edu/~uno/sgb.html
+HOMEPAGE=	https://www-cs-faculty.stanford.edu/~knuth/sgb.html
 COMMENT=	The Stanford GraphBase
 
 DEPENDS+=	tex-tex-[0-9]*:../../print/tex-tex
