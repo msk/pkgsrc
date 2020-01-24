@@ -7,7 +7,7 @@ GITHUB_PROJECT=	c-blosc
 GITHUB_TAG=	v${PKGVERSION_NOREV}
 
 MAINTAINER=	minskim@NetBSD.org
-HOMEPAGE=	http://blosc.org/
+HOMEPAGE=	https://blosc.org/
 COMMENT=	Blocking, shuffling, and lossless compression library
 LICENSE=	modified-bsd
 
