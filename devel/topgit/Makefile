@@ -7,7 +7,7 @@ CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_DEBIAN:=pool/main/t/topgit/}
 
 MAINTAINER=	minskim@NetBSD.org
-HOMEPAGE=	http://repo.or.cz/w/topgit.git
+HOMEPAGE=	https://repo.or.cz/w/topgit.git
 COMMENT=	Different patch queue manager
 
 DEPENDS+=	git-base-[0-9]*:../../devel/git-base
