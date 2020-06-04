@@ -208,7 +208,8 @@ case "$distfile" in
 		_format=cpio ;;
 *.shar.gz|*.shar.bz2|*.shar.Z|*.shar|*.shr.gz|*.shr.bz2|*.shr.Z|*.shr)
 		_format=shar ;;
-*.zip|*.ZIP)	_format=zip ;;
+*.zip|*.ZIP|*.whl)
+		_format=zip ;;
 *.lha|*.lzh)	_format=lha ;;
 *.Z|*.bz2|*.gz|*.z)
 		_format=compressed ;;
