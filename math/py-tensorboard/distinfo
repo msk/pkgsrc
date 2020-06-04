@@ -1,5 +1,5 @@
 $NetBSD: distinfo,v 1.3 2021/10/26 10:56:05 nia Exp $
 
-BLAKE2s (tensorboard-1.7.0.tar.gz) = 397729f1e098d9b61588cc19dc2ccd0ed6f7ab31a8f939ebae869ea8e35002e5
-SHA512 (tensorboard-1.7.0.tar.gz) = 1a57745675f404f2c566c2e356329c9e2b98899e9b350fe77f7018dae9d2c34d52dfdea8de5e02cc699d1c0819a9ec1d78df51e88f97c09ef2f72f808ab7a800
-Size (tensorboard-1.7.0.tar.gz) = 4311124 bytes
+BLAKE2s (tensorboard-2.2.0.tar.gz) = e7447cd7ea0050053289dff6ea76f6c243c6ae6f0331d4ac2b60863a39d2ff94
+SHA512 (tensorboard-2.2.0.tar.gz) = 05da0d879c20c86a3f307aa712e779cab442292c5628086175af141398029d65f119b81a21e08d866ab2e89e9159d036b59a1b22e39a668a7a72a95c79a7af2f
+Size (tensorboard-2.2.0.tar.gz) = 11382232 bytes
