@@ -1,6 +1,6 @@
-$NetBSD: distinfo,v 1.1 2019/12/16 01:12:28 minskim Exp $
+$NetBSD$
 
-SHA1 (setuptools-rust-0.10.6.tar.gz) = c5affa39cb96aab8000f4f10dc1febf572910298
-RMD160 (setuptools-rust-0.10.6.tar.gz) = 1c19130d9152f5b21bac5c27348b0a444e3f8dfd
-SHA512 (setuptools-rust-0.10.6.tar.gz) = f24b7bf6329d0efe962301735fe89f47fd9b061f63137216ba8e35ca76cb4c9b7551f42361990da7bd48873b0ec5ccdc4f5a7a7ec683af7fd9b4e0e83c8c575f
-Size (setuptools-rust-0.10.6.tar.gz) = 266388 bytes
+SHA1 (setuptools-rust-0.11.6.tar.gz) = ba4818db879eea61179ba75937d9e7233059afa7
+RMD160 (setuptools-rust-0.11.6.tar.gz) = dedc09a58e95f99cd401024a530f8f3a045c12cf
+SHA512 (setuptools-rust-0.11.6.tar.gz) = 5ebc3944d7fb2fb8959c7fc7a897b7e658169bc07f8f29d6acd4a4710009c9c213005e3e846c30b565f743aff72f22582474b5ece9c4e58e43081d60c140a7cb
+Size (setuptools-rust-0.11.6.tar.gz) = 277829 bytes
