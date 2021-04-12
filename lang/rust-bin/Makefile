@@ -15,6 +15,7 @@ LICENSE=	mit OR apache-2.0
 CONFLICTS+=	rust-[0-9]*
 
 # Rust upstream provided binaries
+ONLY_FOR_PLATFORM+=	Darwin-*-aarch64
 ONLY_FOR_PLATFORM+=	Darwin-*-x86_64
 ONLY_FOR_PLATFORM+=	FreeBSD-*-x86_64
 ONLY_FOR_PLATFORM+=	NetBSD-*-x86_64
@@ -55,6 +56,10 @@ DISTFILES:=	# empty
 
 # Rust upstream provided binaries
 
+.if !empty(MACHINE_PLATFORM:MDarwin-*-aarch64) || make(distinfo) || make(makesum) || make(mdi)
+RUST_ARCH:=	aarch64-apple-darwin
+DISTFILES:=	${DISTFILES} ${DISTNAME}-${RUST_ARCH}.tar.gz
+.endif
 .if !empty(MACHINE_PLATFORM:MDarwin-*-x86_64) || make(distinfo) || make(makesum) || make(mdi)
 RUST_ARCH:=	x86_64-apple-darwin
 DISTFILES:=	${DISTFILES} ${DISTNAME}-${RUST_ARCH}.tar.gz
