@@ -82,7 +82,7 @@ LUA_LINKER_MAGIC?=	yes
 .if !empty(LUA_LINKER_MAGIC:M[yY][eE][sS])
 BUILDLINK_TRANSFORM.Darwin+=	rm:-shared
 LDFLAGS.Cygwin+=		-llua${LUA_VERSION_MAJOR}.${LUA_VERSION_MINOR}
-LDFLAGS.Darwin+=		-bundle -undefined dynamic_lookup
+LDFLAGS.Darwin+=		-undefined dynamic_lookup
 .endif
 
 .if ${_LUA_VERSION} != "51" && ${_LUA_VERSION} != "52"
