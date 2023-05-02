@@ -24,6 +24,10 @@ CONFLICTS+=	py[0-9]*-imaging-[0-9]*
 
 PYTHON_VERSIONS_INCOMPATIBLE=	27
 
+PYSETUPBUILDTARGET=	build_ext
+PYSETUPBUILDARGS+=	--disable-xcb
+PYSETUPBUILDARGS+=	--disable-raqm # fails to find raqm.h on macOS
+
 DISTUTILS_BUILDDIR_IN_TEST_ENV=	yes
 
 .include "../../devel/zlib/buildlink3.mk"
