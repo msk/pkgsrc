@@ -1,6 +1,7 @@
 $NetBSD: patch-meson.build,v 1.1 2023/11/14 13:48:19 wiz Exp $
 
-Look for library providing backtrace_symbols()
+- Look for library providing backtrace_symbols()
+- Avoid picking up ttx from PATH
 
 --- meson.build.orig	2023-09-23 14:18:32.000000000 +0000
 +++ meson.build
@@ -12,3 +13,12 @@ Look for library providing backtrace_symbols()
  # Used in util
  gtk_dep = dependency('gtk+-2.0', required: get_option('gtk2-utils'))
  
+@@ -291,7 +292,7 @@ if fontconfig_dep.found()
+   }]
+ endif
+ 
+-ttx = find_program('ttx', required: false)
++ttx = find_program('/dev/null/ttx', required: false)
+ 
+ # Disable FreeType by default on platforms where it is optional
+ freetype_option = get_option('freetype')
