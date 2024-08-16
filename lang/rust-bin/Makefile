@@ -210,12 +210,13 @@ do-install:
 .PHONY: fix-darwin-install-name
 post-install: fix-darwin-install-name
 fix-darwin-install-name:
-.  for bin in clippy-driver miri rls rust-analyzer rustc rustdoc
-	otool -XL ${DESTDIR}${PREFIX}/bin/${bin}			\
+.  for bin in bin/clippy-driver bin/miri bin/rls bin/rust-analyzer \
+	bin/rustc bin/rustdoc libexec/rust-analyzer-proc-macro-srv
+	otool -XL ${DESTDIR}${PREFIX}/${bin}			\
 	    | ${GREP} '@rpath' | while read rpath rest; do		\
 		install_name_tool -change $$rpath			\
 		    `${ECHO} $$rpath | ${SED} -e 's,@rpath,${PREFIX}/lib,g'` \
-		    ${DESTDIR}${PREFIX}/bin/${bin};			\
+		    ${DESTDIR}${PREFIX}/${bin};			\
 	done
 .  endfor
 .  for bin in lldb lldb-mi llvm-nm llvm-objcopy llvm-objdump 	\
