@@ -57,6 +57,18 @@ TEST_TARGET=		fish_run_tests
 TEST_DEPENDS+=		${PYPKGPREFIX}-pexpect-[0-9]*:../../devel/py-pexpect
 TEST_ENV+=		LC_ALL=C.UTF-8		# requires a UTF-8 locale
 
+INSTALLATION_DIRS+=	share/themes share/prompts
+
+.include "../../mk/bsd.prefs.mk"
+
+PLIST_VARS+=	darwin notdarwin
+
+.if ${OPSYS} == "Darwin"
+PLIST.darwin=		yes
+.else
+PLIST.notdarwin=	yes
+.endif
+
 post-patch:
 	@${STEP_MSG} "Patching vendor crates"
 .for i in ${VENDORPATCH}
